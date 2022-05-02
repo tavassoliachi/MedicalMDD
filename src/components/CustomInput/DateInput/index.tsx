@@ -5,7 +5,13 @@ import {getStyles} from './styles';
 import {IDateProps} from '../Types/InputProps';
 import React from 'react';
 
-const DateInput = ({onChange, value, borderStyle, tip, error}: IDateProps) => {
+const DateInput = ({
+  onChange,
+  value,
+  borderStyle = 'underlined',
+  tip,
+  error,
+}: IDateProps) => {
   const [open, setOpen] = useState(false);
   const [picked, setPicked] = useState(false);
   const styles = getStyles({borderStyle, error});
@@ -17,6 +23,7 @@ const DateInput = ({onChange, value, borderStyle, tip, error}: IDateProps) => {
         </Text>
       </Pressable>
       <DatePicker
+        mode="date"
         modal
         open={open}
         date={value}

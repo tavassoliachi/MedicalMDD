@@ -7,7 +7,7 @@ import {TextInput as Input} from 'react-native';
 const TextInput = ({
   onChange,
   value,
-  borderStyle,
+  borderStyle = 'outlined',
   tip,
   error = false,
 }: ITextNumProps) => {

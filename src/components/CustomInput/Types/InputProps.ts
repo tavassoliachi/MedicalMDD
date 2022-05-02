@@ -7,10 +7,10 @@ import {
 } from '../Types/InputTypes';
 
 type TBorderStyle = {
-  borderStyle: 'outlined' | 'underlined';
+  borderStyle?: 'outlined' | 'underlined';
 };
 type TShape = {
-  shape: 'square' | 'circle';
+  shape?: 'square' | 'circle';
 };
 type TPlaceholder = {
   placeholder: string;

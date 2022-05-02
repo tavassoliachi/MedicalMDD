@@ -21,15 +21,15 @@ type Props =
 const CustomInput = (props: Props) => {
   switch (props.type) {
     case 'TEXT':
-      return <TextInput {...props} borderStyle="outlined" />;
+      return <TextInput {...props} />;
     case 'NUMBER':
-      return <TextInput {...props} borderStyle="outlined" />;
+      return <TextInput {...props} />;
     case 'DATE':
-      return <DateInput {...props} borderStyle="underlined" />;
+      return <DateInput {...props} />;
     case 'ENUM':
-      return <SelectInput {...props} borderStyle="outlined" />;
+      return <SelectInput {...props} />;
     case 'CHECKBOX':
-      return <CheckboxInput {...props} shape="square" />;
+      return <CheckboxInput {...props} />;
 
     default:
       return <></>;

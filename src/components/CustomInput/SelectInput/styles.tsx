@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export const getStyles = ({error}: any) => {
   return StyleSheet.create({
     container: {alignItems: 'center'},
-
+    mainCont: {},
     input: {
       width: '80%',
       padding: 20,

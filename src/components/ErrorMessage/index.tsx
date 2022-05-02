@@ -10,7 +10,7 @@ const ErrorMessage = ({state, message}: Props): JSX.Element | null => {
   const styles = getStyles();
   return (
     <View style={styles.container}>
-      <Text style={styles.txt}>{message}</Text>
+      <Text style={styles.txt}>*{message}</Text>
     </View>
   );
 };

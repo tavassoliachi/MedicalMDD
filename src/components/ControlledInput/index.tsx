@@ -1,5 +1,5 @@
 import {Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import CustomInput from 'components/CustomInput';
 import {getStyles} from './styles';
 import {Controller, useFormContext} from 'react-hook-form';
@@ -7,12 +7,22 @@ import {IControlledInput} from 'components/CustomInput/Types/types';
 import ErrorMessage from 'components/ErrorMessage';
 
 const ControlledInput = (props: IControlledInput) => {
-  const {validation, name, type} = props;
+  const {
+    validation,
+    validation: {errorMessage, required},
+    name,
+    type,
+  } = props;
   const styles = getStyles({type});
   const {
     register,
+    unregister,
     formState: {errors},
   } = useFormContext();
+  useEffect(() => {
+    return () => unregister(name);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [name]);
   return (
     <View>
       <Controller
@@ -23,7 +33,7 @@ const ControlledInput = (props: IControlledInput) => {
           <View style={styles.renderCont}>
             <Text style={styles.title}>
               {name}
-              {validation.required && '*'}
+              {required && '*'}
             </Text>
             <CustomInput
               {...props}
@@ -33,7 +43,7 @@ const ControlledInput = (props: IControlledInput) => {
             />
             <ErrorMessage
               state={Boolean(errors[name])}
-              message={validation.errorMessage || ''}
+              message={errorMessage || ''}
             />
           </View>
         )}

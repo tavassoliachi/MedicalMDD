@@ -9,7 +9,7 @@ import AndroidSelect from './AndroidSelect';
 const SelectInput = ({
   onChange,
   value,
-  borderStyle,
+  borderStyle = 'outlined',
   tip,
   options,
   containerStyle,

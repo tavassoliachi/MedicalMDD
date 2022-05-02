@@ -1,7 +1,7 @@
 import {View, Text, Image, Pressable} from 'react-native';
 import CustomModal from 'components/CustomModal';
 import {getStyles} from './styles';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ISelectIos} from '../Types/InputProps';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -17,6 +17,9 @@ const IosSelect = ({
   error,
   emptyVal,
 }: ISelectIos) => {
+  useEffect(() => {
+    AntDesign.loadFont();
+  }, []);
   const styles = getStyles({error});
   const [isOpen, setIsOpen] = useState(false);
   const currLabel = options.filter(e => e.id === value)[0]?.label;
