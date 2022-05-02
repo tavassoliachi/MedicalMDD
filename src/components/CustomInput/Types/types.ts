@@ -1,11 +1,4 @@
-import {
-  ITextInput,
-  INumberInput,
-  IDateInput,
-  ICheckboxInput,
-  ISelectInput,
-} from './InputTypes';
-
+import {IValidation} from 'components/ControlledInput/types';
 export interface IFieldProps {
   name: string;
   description?: string;
@@ -23,25 +16,3 @@ export interface IInputProps extends IFieldProps {
   onChange: (e?: any) => void;
   error?: boolean;
 }
-
-export interface IValidation {
-  required: boolean;
-  maxLength?: number | undefined;
-  min?: string | number | undefined;
-  max?: string | number | undefined;
-  errorMessage: string;
-}
-
-// CustomInput Props
-export type IControlledInput = IFieldProps & TFilteredInputs;
-
-// Part of CustomInput Props, with removed props of ControlledInput
-type TFilteredInputs =
-  | Omit<
-      ITextInput | INumberInput | IDateInput | ICheckboxInput,
-      'value' | 'onChange' | 'error'
-    >
-  | Omit<
-      ISelectInput,
-      'value' | 'containerStyle' | 'iconLeft' | 'onChange' | 'error'
-    >;

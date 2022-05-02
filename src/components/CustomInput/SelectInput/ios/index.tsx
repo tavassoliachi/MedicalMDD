@@ -2,9 +2,8 @@ import {View, Text, Image, Pressable} from 'react-native';
 import CustomModal from 'components/CustomModal';
 import {getStyles} from './styles';
 import React, {useEffect, useState} from 'react';
-import {ISelectIos} from '../Types/InputProps';
+import {IProps} from './types';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
 import {Picker} from '@react-native-picker/picker';
 
 const IosSelect = ({
@@ -16,7 +15,7 @@ const IosSelect = ({
   iconLeft,
   error,
   emptyVal,
-}: ISelectIos) => {
+}: IProps) => {
   useEffect(() => {
     AntDesign.loadFont();
   }, []);
@@ -25,16 +24,16 @@ const IosSelect = ({
   const currLabel = options.filter(e => e.id === value)[0]?.label;
   return (
     <View>
-      <View style={styles.iosMainCont}>
+      <View style={styles.container}>
         <Pressable
-          style={[styles.iosValue, containerStyle]}
+          style={[styles.value, containerStyle]}
           onPress={() => setIsOpen(true)}>
-          <View style={styles.IosSubCont}>
+          <View style={styles.subCont}>
             {iconLeft && (
               <Image
                 source={iconLeft}
                 resizeMode="contain"
-                style={styles.IosIconLeft}
+                style={styles.icon}
               />
             )}
             <Text>{currLabel || placeholder}</Text>
@@ -49,15 +48,15 @@ const IosSelect = ({
       </View>
       <CustomModal justifyContent="flex-end" isOpen={isOpen}>
         <View>
-          <View style={styles.iosCont}>
-            <Text style={styles.iosButton} onPress={() => setIsOpen(false)}>
+          <View style={styles.btnCont}>
+            <Text style={styles.button} onPress={() => setIsOpen(false)}>
               Confirm
             </Text>
           </View>
 
           <Picker
             mode="dropdown"
-            style={styles.iosPicker}
+            style={styles.picker}
             selectedValue={value}
             onValueChange={onChange}>
             {emptyVal && (

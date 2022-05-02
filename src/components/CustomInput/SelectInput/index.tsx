@@ -1,10 +1,9 @@
 import {View, Platform} from 'react-native';
 import {getStyles} from './styles';
 import React from 'react';
-import IosSelect from './IosSelect';
-import {ISelectProps} from '../Types/InputProps';
-
-import AndroidSelect from './AndroidSelect';
+import IosSelect from './ios';
+import AndroidSelect from './android';
+import {IProps} from './types';
 
 const SelectInput = ({
   onChange,
@@ -16,7 +15,7 @@ const SelectInput = ({
   iconLeft,
   emptyVal = true,
   error = false,
-}: ISelectProps) => {
+}: IProps) => {
   const styles = getStyles({error});
   borderStyle && {};
   return (

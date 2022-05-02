@@ -2,7 +2,7 @@ import {View, Text, Pressable} from 'react-native';
 import {useState} from 'react';
 import DatePicker from 'react-native-date-picker';
 import {getStyles} from './styles';
-import {IDateProps} from '../Types/InputProps';
+import {IProps} from './types';
 import React from 'react';
 
 const DateInput = ({
@@ -11,7 +11,7 @@ const DateInput = ({
   borderStyle = 'underlined',
   tip,
   error,
-}: IDateProps) => {
+}: IProps) => {
   const [open, setOpen] = useState(false);
   const [picked, setPicked] = useState(false);
   const styles = getStyles({borderStyle, error});

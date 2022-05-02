@@ -3,8 +3,6 @@ import Loading from '../screens/Loading';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TabNavigations from './TabNavigations';
 
-// type Props = {};
-
 const Navigations = () => {
   const Stack = createNativeStackNavigator();
   return (

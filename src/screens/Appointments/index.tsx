@@ -4,8 +4,8 @@ import {useForm, FormProvider} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import LanguageChange from 'components/LanguageChange';
 import React, {useMemo} from 'react';
-import {IControlledInput} from 'components/CustomInput/Types/types';
 import {getStyles} from './styles';
+import {IControlledInput} from 'components/ControlledInput/types';
 import en from '../../assets/en.png';
 import ru from '../../assets/ru.png';
 

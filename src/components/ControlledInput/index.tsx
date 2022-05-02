@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import CustomInput from 'components/CustomInput';
 import {getStyles} from './styles';
 import {Controller, useFormContext} from 'react-hook-form';
-import {IControlledInput} from 'components/CustomInput/Types/types';
+import {IControlledInput} from './types';
 import ErrorMessage from 'components/ErrorMessage';
 
 const ControlledInput = (props: IControlledInput) => {

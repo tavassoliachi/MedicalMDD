@@ -1,7 +1,7 @@
 import {View, Image} from 'react-native';
 import {getStyles} from './styles';
 import {Picker} from '@react-native-picker/picker';
-import {ISelectAndroid} from '../Types/InputProps';
+import {IProps} from './types';
 import React from 'react';
 
 const AndroidSelect = ({
@@ -13,24 +13,20 @@ const AndroidSelect = ({
   error,
   emptyVal,
   iconLeft,
-}: ISelectAndroid) => {
+}: IProps) => {
   const styles = getStyles({error, iconLeft});
   return (
-    <View style={styles.androidMainCont}>
-      <View style={[styles.androidSubCont, containerStyle]}>
+    <View style={styles.container}>
+      <View style={[styles.subContainer, containerStyle]}>
         {iconLeft && (
-          <Image
-            source={iconLeft}
-            resizeMode="contain"
-            style={styles.AndroidIconLeft}
-          />
+          <Image source={iconLeft} resizeMode="contain" style={styles.icon} />
         )}
         <Picker
           mode="dropdown"
           selectedValue={value}
           onValueChange={onChange}
           placeholder={placeholder}
-          style={styles.androidVal}>
+          style={styles.value}>
           {emptyVal && (
             <Picker.Item
               key=""

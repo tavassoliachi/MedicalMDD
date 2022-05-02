@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import {getStyles} from './styles';
-import {ITextNumProps} from '../Types/InputProps';
+import {TProps} from './types';
 import {TextInput as Input} from 'react-native';
 
 const TextInput = ({
@@ -10,7 +10,7 @@ const TextInput = ({
   borderStyle = 'outlined',
   tip,
   error = false,
-}: ITextNumProps) => {
+}: TProps) => {
   const styles = getStyles({borderStyle, error});
   return (
     <View style={styles.container}>

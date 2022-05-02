@@ -1,6 +1,5 @@
 import {View} from 'react-native';
 import React from 'react';
-
 import {getStyles} from './styles';
 import CustomInput from 'components/CustomInput';
 import {IProps} from './types';
