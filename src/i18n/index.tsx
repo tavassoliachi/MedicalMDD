@@ -17,6 +17,7 @@ const resources = {
 //i18N Initialization
 
 i18n.use(initReactI18next).init({
+  compatibilityJSON: 'v3',
   resources,
   lng: 'en',
   //   `${localStorage.getItem('lang') || 'en'}`, //default language

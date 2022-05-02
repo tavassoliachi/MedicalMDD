@@ -3,7 +3,7 @@ import ControlledInput from 'components/ControlledInput';
 import {useForm, FormProvider} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import LanguageChange from 'components/LanguageChange';
-import React from 'react';
+import React, {useMemo} from 'react';
 import {IControlledInput} from 'components/CustomInput/Types/types';
 import {getStyles} from './styles';
 import en from '../../assets/en.png';
@@ -22,15 +22,21 @@ const Appointments = () => {
   const onSubmit = (data: any) => {
     console.log(data);
   };
-  let languages = [
-    {id: 'en', label: 'EN', icon: en},
-    {id: 'ru', label: 'RU', icon: ru},
-  ];
+  let languages = useMemo(() => {
+    return [
+      {id: 'en', label: 'EN', icon: en},
+      {id: 'ru', label: 'RU', icon: ru},
+    ];
+  }, []);
+  const icon = useMemo(() => {
+    return languages.filter((e: {id: string}) => e.id === language)[0]?.icon;
+  }, [language, languages]);
+
   return (
     <View style={styles.container}>
       <View style={styles.titleCont}>
         <Text style={styles.title}>Observation</Text>
-        <LanguageChange options={languages} />
+        <LanguageChange options={languages} icon={icon} />
       </View>
 
       <FormProvider {...methods}>

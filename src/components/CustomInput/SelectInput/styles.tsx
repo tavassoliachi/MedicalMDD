@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const getStyles = ({error}: any) => {
+export const getStyles = ({error, iconLeft}: any) => {
   return StyleSheet.create({
     container: {alignItems: 'center'},
     mainCont: {},
@@ -30,6 +30,7 @@ export const getStyles = ({error}: any) => {
     },
     androidMainCont: {
       alignItems: 'center',
+      justifyContent: 'center',
     },
     iosMainCont: {alignItems: 'center'},
     iosValue: {
@@ -43,6 +44,14 @@ export const getStyles = ({error}: any) => {
       padding: 15,
     },
     IosIconLeft: {width: 45, height: 27, marginRight: 15},
+    AndroidIconLeft: {
+      width: 45,
+      height: 27,
+      position: 'absolute',
+      top: '25%',
+      left: 5,
+    },
+    androidVal: iconLeft && {marginLeft: 35},
     arrow: {position: 'absolute', right: 7},
     IosSubCont: {
       flexDirection: 'row',

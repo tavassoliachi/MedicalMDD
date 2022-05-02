@@ -41,7 +41,7 @@ const SelectInput = ({
           options={options}
           containerStyle={containerStyle}
           emptyVal={emptyVal}
-          // iconLeft={iconLeft}
+          iconLeft={iconLeft}
         />
       )}
     </View>

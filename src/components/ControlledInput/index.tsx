@@ -27,6 +27,8 @@ const ControlledInput = (props: IControlledInput) => {
     <View>
       <Controller
         {...register(name)}
+        //@ts-ignore
+        ref={null}
         rules={validation}
         defaultValue={type === 'DATE' ? new Date() : ''}
         render={({field: {onChange, value}}) => (

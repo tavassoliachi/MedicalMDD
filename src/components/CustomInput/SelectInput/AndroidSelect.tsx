@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {View, Image} from 'react-native';
 import {getStyles} from './styles';
 import {Picker} from '@react-native-picker/picker';
 import {ISelectAndroid} from '../Types/InputProps';
@@ -12,16 +12,25 @@ const AndroidSelect = ({
   containerStyle,
   error,
   emptyVal,
+  iconLeft,
 }: ISelectAndroid) => {
-  const styles = getStyles({error});
+  const styles = getStyles({error, iconLeft});
   return (
     <View style={styles.androidMainCont}>
       <View style={[styles.androidSubCont, containerStyle]}>
+        {iconLeft && (
+          <Image
+            source={iconLeft}
+            resizeMode="contain"
+            style={styles.AndroidIconLeft}
+          />
+        )}
         <Picker
           mode="dropdown"
           selectedValue={value}
           onValueChange={onChange}
-          placeholder={placeholder}>
+          placeholder={placeholder}
+          style={styles.androidVal}>
           {emptyVal && (
             <Picker.Item
               key=""
@@ -31,7 +40,7 @@ const AndroidSelect = ({
             />
           )}
           {options.map(e => {
-            return <Picker.Item label={e.label} value={e.label} key={e.id} />;
+            return <Picker.Item label={e.label} value={e.id} key={e.id} />;
           })}
         </Picker>
       </View>

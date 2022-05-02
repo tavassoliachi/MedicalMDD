@@ -23,7 +23,7 @@ export interface ISelectIos
   extends Omit<ISelectInput, 'type' | 'tip'>,
     TPlaceholder {}
 export interface ISelectAndroid
-  extends Omit<ISelectInput, 'type' | 'tip' | 'iconLeft'>,
+  extends Omit<ISelectInput, 'type' | 'tip'>,
     TPlaceholder {}
 
 interface ITextInput1 extends ITextInput, TBorderStyle {}
